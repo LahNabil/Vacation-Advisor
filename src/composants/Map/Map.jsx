@@ -8,7 +8,7 @@ import './style.css'
 
 const center = {lat:48.8584, lng: 2.2945}
 
-const Map = () => {
+const Map = ({setCoordinates, setBounds, coordinates}) => {
     
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -17,7 +17,10 @@ const Map = () => {
   return (
     <div>
         <div className='mapg'>
-        <GoogleMap zoom={10} margin={[50,50,50,50]} defaultCenter={center} defaultZoom={14} center={center} mapContainerStyle={{ width: '100%', height: '600px' }}>
+        <GoogleMap onChange={(e)=>{
+          console.log(e)
+          setCoordinates({lat: e.center.lat, lng: e.center.lng})
+        }} zoom={10} margin={[50,50,50,50]} defaultCenter={center} defaultZoom={14} center={center} mapContainerStyle={{ width: '100%', height: '600px' }}>
             {/*<Marker position={{lat: 44, lng: -80}}/>*/}
         
         
