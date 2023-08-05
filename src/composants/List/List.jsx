@@ -2,20 +2,10 @@ import React, {useState} from 'react'
 import './style.css'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import PlaceDetail from '../PlaceDetails/PlaceDetail'
-const List = () => {
+const List = ({places}) => {
     const [type,setType] = useState('restaurants')
     const [rating, setRating] = useState('')
-    const places = [
-        {name: 'Cool Place'},
-        {name: 'Best Coffee'},
-        {name: 'Zephyre'},
-        {name: 'Cool Place'},
-        {name: 'Best Coffee'},
-        {name: 'Zephyre'},
-        {name: 'Cool Place'},
-        {name: 'Best Coffee'},
-        {name: 'Zephyre'},
-    ];
+   
   return (
     <div className='containerList'>
         <Typography variant='h4'> Restaurants, Hotels & Attractions</Typography>

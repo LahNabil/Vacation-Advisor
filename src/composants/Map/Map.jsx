@@ -6,7 +6,7 @@ import { Paper, Typography, useMediaQuery } from '@mui/material';
 import Rating from '@mui/material';
 import './style.css'
 
-  const center = {lat:48.8584, lng: 2.2945}
+  // const center = {lat:48.8584, lng: 2.2945}
 
 const Map = ({setCoordinates, setBounds, coordinates}) => {
     
@@ -19,8 +19,8 @@ const Map = ({setCoordinates, setBounds, coordinates}) => {
         <div className='mapg'>
         <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyAgiI8YNF-soSHefkHotyghCTRx2EiqChY' }}
-        defaultCenter={center}
-        center={center}
+        defaultCenter={coordinates}
+        center={coordinates}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
         options={''}
