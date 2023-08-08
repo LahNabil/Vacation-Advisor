@@ -6,18 +6,25 @@
   }
   */
  .containerList{
-    padding: 25px;
+    padding: 30px;
     
  } 
  .formControl{
-    margin-bottom: 30px;
+    margin: 10px ;
     width: 120px;
     margin: 8px;
+    border: 1px solid black;
 
  }
+ .formControlWrapper {
+   margin-bottom: 25px; /* Add your desired margin value here */
+ }
+ 
  .gridL{
     height: 75vh;
     overflow: auto;
+    margin: 20px;
+    
  }
  .selectL{
     

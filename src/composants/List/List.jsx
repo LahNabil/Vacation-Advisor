@@ -9,7 +9,7 @@ const List = ({places}) => {
   return (
     <div className='containerList'>
         <Typography variant='h4'> Restaurants, Hotels & Attractions</Typography>
-
+        <div className='formControlWrapper'>
         <FormControl className='formControl'>
             <InputLabel>Type</InputLabel>
             <Select value={type} onChange={(e)=> setType(e.target.value)} className='selectL'>
@@ -27,6 +27,7 @@ const List = ({places}) => {
                 <MenuItem value={4.5}>Above 4.5</MenuItem>
             </Select>
         </FormControl>
+        </div>
         <Grid container spacing={3} className='gridL'>
             {places?.map((place, i )=>(
                 <Grid item key={i} xs={12}>
