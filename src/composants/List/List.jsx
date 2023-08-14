@@ -1,10 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, createRef} from 'react'
 import './style.css'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import PlaceDetail from '../PlaceDetails/PlaceDetail'
-const List = ({places}) => {
+const List = ({places, childClicked}) => {
+
     const [type,setType] = useState('restaurants')
     const [rating, setRating] = useState('')
+    const [elRefs, setElRefs] = useState([])
+    useEffect(()=> {
+        const refs = Array(places.length).fill().map((_,i) => refs[i] || createRef());
+        setElRefs(refs);
+    }, [places]);
    
   return (
     <div className='containerList'>
@@ -31,7 +37,11 @@ const List = ({places}) => {
         <Grid container spacing={3} className='gridL'>
             {places?.map((place, i )=>(
                 <Grid item key={i} xs={12}>
-                    <PlaceDetail place={place}/>
+                    <PlaceDetail
+                        place={place}
+                        selected={Number(childClicked)===i}
+                        refProp={elRefs[i]}
+                    />
                 </Grid>
             ))}
         </Grid>

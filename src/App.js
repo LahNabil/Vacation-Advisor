@@ -17,6 +17,7 @@ function App() {
   const [places, setPlaces] = useState([]);
   const [coordinates, setCoordinates] = useState({lat: 48.8584, lng: 2.2945});
   const [bounds,setBounds] = useState({});
+  const [childClicked, setChildClicked]= useState(null);
 
   
 
@@ -32,7 +33,10 @@ function App() {
       <Header/>
       <div className='container'>
         <div className='container1'>
-          <List places={places}/>
+          <List 
+            places={places}
+            childClicked={childClicked}  
+          />
         </div>
         <div className='container2'>
           <Map
@@ -40,6 +44,7 @@ function App() {
           setBounds= {setBounds}
           coordinates={coordinates}
           places={places}
+          setChildClicked={setChildClicked}
           />
         </div>
       </div>
