@@ -6,7 +6,7 @@ import './style.css'
 import Rating from '@mui/material/Rating';
 
 const PlaceDetail = ({place, selected, refProp}) => {
-  if(selected) refProp?.current?.scollIntoView({behavior: "smooth", block:"start"})
+  if(selected) refProp?.current?.scrollIntoView({behavior: "smooth", block:"start"})
 
   return (
     <Card elevation={6}>

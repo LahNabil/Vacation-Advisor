@@ -19,13 +19,17 @@ function App() {
   const [bounds,setBounds] = useState({});
   const [childClicked, setChildClicked]= useState(null);
 
+  const[isLoading, setIsLoading]=useState(false);
+
   
 
   useEffect(()=> {
+    setIsLoading(true);
     getPlacesData(bounds?.sw, bounds?.ne)
     .then((data)=> {
       console.log(data);
       setPlaces(data);
+      setIsLoading(false);
     })
   },[coordinates, bounds]);
   return (
@@ -36,6 +40,7 @@ function App() {
           <List 
             places={places}
             childClicked={childClicked}  
+            isLoading={isLoading}
           />
         </div>
         <div className='container2'>

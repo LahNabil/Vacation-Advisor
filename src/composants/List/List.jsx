@@ -2,19 +2,26 @@ import React, {useState, useEffect, createRef} from 'react'
 import './style.css'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import PlaceDetail from '../PlaceDetails/PlaceDetail'
-const List = ({places, childClicked}) => {
+const List = ({places, childClicked, isLoading}) => {
 
     const [type,setType] = useState('restaurants')
     const [rating, setRating] = useState('')
     const [elRefs, setElRefs] = useState([])
     useEffect(()=> {
-        const refs = Array(places.length).fill().map((_,i) => refs[i] || createRef());
-        setElRefs(refs);
+        const refs = Array(places?.length).fill().map((_,i) => elRefs[i] || createRef());
+
+        setElRefs(refs)
     }, [places]);
    
   return (
     <div className='containerList'>
         <Typography variant='h4'> Restaurants, Hotels & Attractions</Typography>
+        {isLoading? (
+            <div className='loading'>
+                <CircularProgress size="5rem"/>
+            </div>    
+        ) : (
+            <>
         <div className='formControlWrapper'>
         <FormControl className='formControl'>
             <InputLabel>Type</InputLabel>
@@ -45,8 +52,12 @@ const List = ({places, childClicked}) => {
                 </Grid>
             ))}
         </Grid>
+        </>
+        )}
+        
+        
     </div>
-  )
+  );
 }
 
 export default List
