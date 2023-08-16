@@ -2,11 +2,10 @@ import React, {useState, useEffect, createRef} from 'react'
 import './style.css'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import PlaceDetail from '../PlaceDetails/PlaceDetail'
-const List = ({places, childClicked, isLoading}) => {
+const List = ({places, childClicked, isLoading, type, setType, rating, setRating}) => {
 
-    const [type,setType] = useState('restaurants')
-    const [rating, setRating] = useState('')
-    const [elRefs, setElRefs] = useState([])
+    
+    const [elRefs, setElRefs] = useState([]);
     useEffect(()=> {
         const refs = Array(places?.length).fill().map((_,i) => elRefs[i] || createRef());
 
