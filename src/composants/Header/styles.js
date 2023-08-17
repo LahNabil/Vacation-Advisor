@@ -6,4 +6,3 @@ export default makeStyles((theme) => ({
         color: 'red'
     }
 }))
-
