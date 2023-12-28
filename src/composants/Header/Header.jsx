@@ -29,7 +29,7 @@ const Header = (setCoordinates) => {
           Explore new places
         </Typography>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
           <div>
             <SearchIcon style={{height: '100%',display: 'flex', alignItems: 'center'}}/>
           </div>
