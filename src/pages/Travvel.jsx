@@ -5,6 +5,7 @@ import Map from '../composants/Map/Map'
 import List from '../composants/List/List';
 import { getPlacesData } from '../api';
 import React, {useState, useEffect} from 'react';
+import Footer from '../composants/Footer/Footer';
 
 function Travvel() {
   
@@ -67,7 +68,9 @@ function Travvel() {
           />
         </div>
       </div>
+      <Footer/>
     </div>  
+    
     
     
   );
