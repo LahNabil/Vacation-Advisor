@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import {Swiper, SwiperSlide,useSwiper} from 'swiper/react'
-import SwiperCore, { Autoplay } from 'swiper';
 import "swiper/css"
 import { sliderSettings } from '../../utils/common'
 import { Link } from 'react-router-dom';
