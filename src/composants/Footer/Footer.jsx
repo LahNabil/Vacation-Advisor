@@ -6,7 +6,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="containerrr">
         <div className="footer-content">
           <div className="footer-section about">
             <h2 className="logo">Your Logo</h2>
@@ -32,10 +32,10 @@ const Footer = () => {
           <div className="footer-section social">
             <h2>Follow Us</h2>
             <div className="social-icons">
-              <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
-              <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
-              <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-              <a href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+            <a href="https://web.facebook.com" target="_blank" rel="noopener noreferrer">Facebook </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn </a>
             </div>
           </div>
         </div>

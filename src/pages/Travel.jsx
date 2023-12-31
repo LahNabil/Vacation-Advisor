@@ -1,5 +1,5 @@
 
-import '../App.css'
+
 import Header from '../composants/Header/Header';
 import Map from '../composants/Map/Map'
 import List from '../composants/List/List';
@@ -7,7 +7,7 @@ import { getPlacesData } from '../api';
 import React, {useState, useEffect} from 'react';
 import Footer from '../composants/Footer/Footer';
 
-function Travvel() {
+function Travel() {
   
   useEffect(()=>{
     navigator.geolocation.getCurrentPosition(({coords: {latitude , longitude}})=>{
@@ -76,4 +76,4 @@ function Travvel() {
   );
 }
 
-export default Travvel;
+export default Travel;

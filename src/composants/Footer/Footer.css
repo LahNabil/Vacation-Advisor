@@ -1,4 +1,4 @@
-/* Footer.css */
+
 
 .footer {
     background-color: #333;
@@ -6,11 +6,13 @@
     padding: 50px 0;
   }
   
-  .container {
+  
+  .containerrr {
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
   }
+  
   
   .footer-content {
     display: flex;
@@ -60,10 +62,10 @@
   }
   
   .social-icons a:hover i {
-    color: #00aced; /* Change color on hover */
-  }
+    color: #00aced; 
+  } 
   
-  .footer-bottom {
+   .footer-bottom {
     text-align: center;
     padding: 10px 0;
     background-color: #222;
@@ -74,4 +76,4 @@
     font-size: 14px;
     color: #aaa;
   }
-  
+   

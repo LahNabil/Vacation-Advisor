@@ -1,41 +1,82 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import './Register.css'
 
 const RegisterPage = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLogin, setIslogin] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value);
+  };
+  const handleLastnameChange = (e) => {
+    setLastName(e.target.value);
+  };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your registration logic here
+    try {
+      // Send a POST request to your backend for authentication
+      const response = await fetch('http://localhost:8080/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, lastName, email, password }),
+      });
+      if (response.status === 403) {
+        console.log('Authentication failed: Forbidden');
+        return;
+      }
+      else if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('token', data.token);
+        console.log(localStorage.getItem("token"));
+        console.log("data:" + data);
+        setIslogin(true);
+        console.log('Registration successful', email, password, data.token);
+        
+      }else {
+        console.error('Registration failed:', response.status);
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   };
 
   return (
-    <div className="container">
+    <div className="containe">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="firstname">Firstname:</label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
+            id="firstname"
+            name="firstname"
+            value={firstName}
+            onChange={handleFirstNameChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="lastName">Lastname:</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={lastName}
+            onChange={handleLastnameChange}
             required
           />
         </div>
@@ -45,8 +86,8 @@ const RegisterPage = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={handleEmailChange}
             required
           />
         </div>
@@ -56,27 +97,18 @@ const RegisterPage = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={handlePasswordChange}
             required
           />
         </div>
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        
         <button type="submit">Register</button>
       </form>
       <p>
-        Already have an account? <Link to="/login">Login</Link>
+        Already have an account? <Link to="/login" className="a">Login</Link>
       </p>
+      {isLogin && <Navigate to="/" />}
     </div>
   );
 };

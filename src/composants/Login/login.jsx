@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from "react-router-dom";
 import './login.css'
 
 const Login = () => {
@@ -47,14 +48,9 @@ const Login = () => {
     }
   };
 
+
   return (
-    <div className='container'>
-      {isLogin ? (
-        <div>
-          <h1>Vous êtes Connecté maintenant</h1>
-          <p>Vous avez l'accès à l'adminPanel</p>
-        </div>
-      ) : (
+    <div className='containerr'>
         <div>
           <h1 className='text-center my-3'>Login</h1>
           <form onSubmit={handleSubmit}>
@@ -84,10 +80,13 @@ const Login = () => {
               <button type="submit" className='btn btn-primary w-100'>Login</button>
             </div>
           </form>
+          <p>
+            Click here to Register <Link to="/register">Register</Link>
+          </p>
         </div>
-      )}
+        {isLogin && <Navigate to="/" />}
     </div>
   );
-};
+ };
 
-export default Login;
+ export default Login;

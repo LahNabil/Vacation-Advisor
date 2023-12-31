@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Box, InputBase } from '@mui/material';
+import { Link } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import { Autocomplete } from '@react-google-maps/api';
 import './Header.css'
@@ -27,10 +28,11 @@ const Header = (setCoordinates) => {
         </Typography>
         <Box display='flex'>
         <Typography variant="h6" style={{ margin: '10px' }}>
-          <button className='button' >Sign in</button>
+        <Link to="/login"><button className='button' >Sign in</button></Link>
+          
         </Typography>
         <Typography variant="h6" style={{ margin: '10px' }}>
-          <button className='button'>Sign up</button>
+        <Link to="/register"><button className='button' >Sign up</button></Link>
         </Typography>
         </Box>
         {/* <Box display='flex'>
