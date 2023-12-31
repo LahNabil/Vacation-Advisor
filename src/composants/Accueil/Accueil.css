@@ -1,7 +1,6 @@
 .hero-wrapper{
     color: white;
     position: relative;
-    /* padding-bottom: 2rem; */
     background-image: url('../../assets/purple_image.png');
     background-size: cover;
     background-position: center;
