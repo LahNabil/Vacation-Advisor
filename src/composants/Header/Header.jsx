@@ -6,19 +6,19 @@ import { Autocomplete } from '@react-google-maps/api';
 import './Header.css'
 
 const Header = (setCoordinates) => {
-  const [autocomplete, setAutocomplete] = useState(null);
-  const onLoad = (autoC) => setAutocomplete(autoC); 
+  // const [autocomplete, setAutocomplete] = useState(null);
+  // const onLoad = (autoC) => setAutocomplete(autoC); 
 
-  const onPlaceChanged = () => {
-  if (autocomplete) {
-    const place = autocomplete.getPlace();
-    if (place.geometry && place.geometry.location) {
-      const lat = place.geometry.location.lat();
-      const lng = place.geometry.location.lng();
-      setCoordinates({ lat, lng });
-    }
-  }
-};
+//   const onPlaceChanged = () => {
+//   if (autocomplete) {
+//     const place = autocomplete.getPlace();
+//     if (place.geometry && place.geometry.location) {
+//       const lat = place.geometry.location.lat();
+//       const lng = place.geometry.location.lng();
+//       setCoordinates({ lat, lng });
+//     }
+//   }
+// };
 
   return (
     <AppBar position="static">

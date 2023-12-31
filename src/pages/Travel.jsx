@@ -1,5 +1,4 @@
 
-
 import Header from '../composants/Header/Header';
 import Map from '../composants/Map/Map'
 import List from '../composants/List/List';
