@@ -9,7 +9,7 @@ import './style.css'
 
   // const center = {lat:48.8584, lng: 2.2945}
 
-const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) => {
+const Mapp = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) => {
 
   const isDesktop = useMediaQuery('(min-width:600px)');
   console.log({isDesktop})
@@ -87,4 +87,4 @@ const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked}) 
   )
 }
 
-export default Map
+export default Mapp
