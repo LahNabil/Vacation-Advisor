@@ -7,7 +7,7 @@ const RegisterPage = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isLogin, setIslogin] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -43,7 +43,7 @@ const RegisterPage = () => {
         localStorage.setItem('token', data.token);
         console.log(localStorage.getItem("token"));
         console.log("data:" + data);
-        setIslogin(true);
+        setIsAuth(true);
         console.log('Registration successful', email, password, data.token);
         
       }else {
@@ -108,7 +108,7 @@ const RegisterPage = () => {
       <p>
         Already have an account? <Link to="/login" className="a">Login</Link>
       </p>
-      {isLogin && <Navigate to="/" />}
+      {isAuth && <Navigate to="/" />}
     </div>
   );
 };
