@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-
+const { RAPID_API_KEY } = process.env;
 export const getPlacesData = async (type,sw, ne) => {
     try{
         const {data: {data}} = await axios.get(`https://travel-advisor.p.rapidapi.com/${type}/list-in-boundary`, {
@@ -12,7 +12,7 @@ export const getPlacesData = async (type,sw, ne) => {
             tr_longitude: ne.lng,
           },
           headers: {
-            'X-RapidAPI-Key': '6f2a434e2dmsha8f88284a9fe841p1dcf81jsnbf80f61fe6e4',
+            'X-RapidAPI-Key': RAPID_API_KEY,
             'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
           }
         });
